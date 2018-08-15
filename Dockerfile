@@ -1,6 +1,6 @@
 FROM simonszu/apache-php-ssl
 
-ENV WEBTREES_VERSION 1.7.9
+ENV WEBTREES_VERSION 1.7.10
 
 WORKDIR /var/www/html
 
