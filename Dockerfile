@@ -12,7 +12,8 @@ RUN apt-get update \
     libmcrypt-dev \
     libpng-dev \
     && rm -rf /var/lib/apt/lists/* \
-    && wget https://github.com/fisharebest/webtrees/releases/download/$WEBTREES_VERSION/$WEBTREES_VERSION.zip \
+    && https://github.com/fisharebest/webtrees/archive/$WEBTREES_VERSION.zip \
+##    && wget https://github.com/fisharebest/webtrees/releases/download/$WEBTREES_VERSION/$WEBTREES_VERSION.zip \
     && unzip webtrees-$WEBTREES_VERSION.zip \
     && rm $WEBTREES_VERSION.zip \
     && cp -r /var/www/html/data /var/www/html/data.bak \
