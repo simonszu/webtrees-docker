@@ -1,19 +1,20 @@
 FROM simonszu/apache-php-ssl
 
-ENV WEBTREES_VERSION 1.7.15
+ENV WEBTREES_VERSION 2.0.9
 
 WORKDIR /var/www/html
 
 RUN apt-get update \
     && apt-get install -y wget \
+    unzip \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
     libpng-dev \
     && rm -rf /var/lib/apt/lists/* \
-    && wget https://github.com/fisharebest/webtrees/archive/$WEBTREES_VERSION.tar.gz \
-    && tar -xzf $WEBTREES_VERSION.tar.gz --strip-components=1 \
-    && rm $WEBTREES_VERSION.tar.gz \
+    && wget https://github.com/fisharebest/webtrees/releases/download/$WEBTREES_VERSION/$WEBTREES_VERSION.zip \
+    && unzip webtrees-$WEBTREES_VERSION.zip \
+    && rm $WEBTREES_VERSION.zip \
     && cp -r /var/www/html/data /var/www/html/data.bak \
     && chown -R www-data /var/www/html \
     && chmod -R g-w /var/www/html* \
