@@ -1,4 +1,4 @@
-language: php
+planguage: php
 
 services:
   - docker
@@ -10,11 +10,11 @@ install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
 script:
-  - docker build -t webtrees .
+  - docker build -t temp .
 
 after_success:
-  - docker tag dosage:latest simonszu/webtrees:latest
-  - docker tag dosage:latest simonszu/webtrees:travis-$TRAVIS_BUILD_NUMBER
+  - docker tag temp:latest simonszu/webtrees:latest
+  - docker tag temp:latest simonszu/webtrees:travis-$TRAVIS_BUILD_NUMBER
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker push simonszu/webtrees:latest
   - docker push simonszu/webtrees:travis-$TRAVIS_BUILD_NUMBER
