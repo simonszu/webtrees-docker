@@ -15,7 +15,7 @@ RUN apt-get update \
     && wget https://github.com/fisharebest/webtrees/archive/$WEBTREES_VERSION.zip \
     && unzip $WEBTREES_VERSION.zip \
     && rm $WEBTREES_VERSION.zip \
-    && mv webtrees/* /var/www/html/
+    && mv webtrees/* /var/www/html/ \
     && cp -r /var/www/html/data /var/www/html/data.bak \
     && chown -R www-data /var/www/html \
     && chmod -R g-w /var/www/html* \
