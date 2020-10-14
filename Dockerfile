@@ -19,11 +19,11 @@ RUN wget https://github.com/fisharebest/webtrees/archive/$WEBTREES_VERSION.zip \
     
 RUN mv webtrees-$WEBTREES_VERSION/* /var/www/html/
 
-RUN docker-php-ext-install -j$(nproc) pdo_mysql \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd
+#RUN docker-php-ext-install -j$(nproc) pdo_mysql \
+#    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+#    && docker-php-ext-install -j$(nproc) gd
 
-VOLUME /var/www/html/data
+#VOLUME /var/www/html/data
 
 ADD run.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run.sh
