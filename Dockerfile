@@ -29,7 +29,7 @@ ADD run.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run.sh
 ADD messages.po /var/www/html/resources/lang/de
 
-RUN chown -R www-data:root /var/www/html/data
+RUN chown -R www-data:root /var/www/html/
 
 EXPOSE 443
 ENTRYPOINT ["/usr/local/bin/run.sh"]
