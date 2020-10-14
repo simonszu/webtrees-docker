@@ -27,7 +27,7 @@ RUN docker-php-ext-install -j$(nproc) pdo_mysql
 
 ADD run.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run.sh
-ADD de.mo /var/www/html/resources/lang/de
+ADD messages.po /var/www/html/resources/lang/de
 
 RUN chown -R www-data:root /var/www/html/data
 
