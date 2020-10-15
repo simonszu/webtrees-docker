@@ -26,7 +26,7 @@ RUN docker-php-ext-install -j$(nproc) pdo_mysql \
     && docker-php-ext-install -j$(nproc) intl \
     && docker-php-ext-install -j$(nproc) zip
 
-#VOLUME /var/www/html/data
+VOLUME /var/www/html/data
 
 ADD run.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run.sh
