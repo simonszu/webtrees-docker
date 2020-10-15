@@ -28,6 +28,10 @@ RUN docker-php-ext-install -j$(nproc) pdo_mysql \
 
 VOLUME /var/www/html/data
 
+# Enable Logs
+RUN cp $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
+
+# Generate SSL stuff
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 
 RUN openssl req -x509 -nodes -days 36500 -newkey rsa:4096 -keyout /etc/ssl/selfsigned.key -out /etc/ssl/selfsigned.crt -subj "/C=AA/ST=AA/L=Internet/O=Docker/OU=www.simonszu.de/CN=selfsigned" \
