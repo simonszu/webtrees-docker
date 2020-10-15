@@ -1,4 +1,4 @@
-FROM simonszu/apache-php-ssl
+FROM php:7-apache
 
 ENV WEBTREES_VERSION 2.0.9
 
@@ -27,6 +27,14 @@ RUN docker-php-ext-install -j$(nproc) pdo_mysql \
     && docker-php-ext-install -j$(nproc) zip
 
 VOLUME /var/www/html/data
+
+RUN rm /etc/apache2/sites-enabled/000-default.conf
+
+RUN openssl req -x509 -nodes -days 36500 -newkey rsa:4096 -keyout /etc/ssl/selfsigned.key -out /etc/ssl/selfsigned.crt -subj "/C=AA/ST=AA/L=Internet/O=Docker/OU=www.simonszu.de/CN=selfsigned" \
+    && a2enmod ssl
+
+ADD vhost-ssl.conf /etc/apache2/sites-enabled/
+
 
 ADD run.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run.sh
