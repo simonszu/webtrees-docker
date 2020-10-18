@@ -23,6 +23,7 @@ RUN apt-get update \
     libwebp-dev \
     libxpm-dev \
     libz-dev \
+    libzip-dev \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
     
