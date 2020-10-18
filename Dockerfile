@@ -16,6 +16,7 @@ RUN apt-get update \
     && apt-get install -y wget \
     unzip \
     libfreetype6-dev \
+    libicu-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
     libpng-dev \
